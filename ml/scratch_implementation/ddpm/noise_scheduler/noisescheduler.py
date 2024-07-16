@@ -38,7 +38,7 @@ class NoiseScheduler:
 			return mean, x0
 
 		variance = self.betas.to(xt.device)[t] * ((1 - self.alpha_prod.to(xt.device)[t-1])/(1 - self.alpha_prod.to(xt.device)[t]))
-		sigma = vairance ** 0.5 #std deviation?
+		sigma = variance ** 0.5 #std deviation?
 		z = torch.randn(xt.shape).to(xt.device)
 
 		return mean + sigma*z, x0
